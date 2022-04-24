@@ -1,0 +1,25 @@
+# Default values for server.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deploymentName: server
+labels:
+  app: server
+
+replicaCount: 1
+containerPort: 3000
+
+image:
+  repository: ghcr.io/dmiravete/testing-knative
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: latest
+
+imagePullSecrets: []
+
+service:
+  type: LoadBalancer
+  port: 3000
+  targetPort: 3000
+
+resources: {}
